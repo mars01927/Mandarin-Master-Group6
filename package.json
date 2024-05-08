@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@nuxtjs/supabase": "^0.3.8",
+    "@nuxtjs/tailwindcss": "^6.6.5",
+    "@types/md5": "^2.3.5",
+    "nuxt": "^3.4.3"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "md5": "^2.3.0"
+  }
+}
