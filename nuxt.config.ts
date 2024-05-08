@@ -1,5 +1,14 @@
+import { Configuration } from '@nuxt/types';
+
+const config: Configuration = {
+  plugins: [
+    { src: '~/plugins/audio-recorder.ts', mode: 'client' } // Ensure the plugin runs only on client-side
+  ],
+  // include other configuration settings as needed
+};
+
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/supabase', '@nuxtjs/tailwindcss', '@element-plus/nuxt'],
   supabase: {
     supabaseUrl: process.env.SUPABASE_URL,
     supabaseKey: process.env.SUPABASE_KEY
@@ -7,6 +16,7 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.postcss'
   },
+  elementPlus:{},
   app: {
     layoutTransition: { name: 'layout', mode: 'out-in' },
     pageTransition: { name: 'page', mode: 'out-in' },

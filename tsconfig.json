@@ -3,6 +3,11 @@
   "extends": "./.nuxt/tsconfig.json",
   "include": [
     "src/**/*",
-    "custom-types.d.ts"
-  ]
+    "plugins/custom-types.d.ts"
+  ],
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "types": ["vue-audio-recorder"]
+  },
+  "include": ["src/**/*", "types/**/*"]
 }

@@ -3,35 +3,30 @@
       <p v-if="user" class="fVeafc in">Hi, {{ user.user_metadata.first_name }}</p>
       <p v-else class="fVeafc">unauthenticated</p>
       <h1 class="kKxhrq">
-        EXAM
+        Exam
       </h1>
       <p class="kRTmDC">
-        You can use our translation software to convert multiple dialects to Mandarin, and also learn and practice on our platform. We also provide AI based exam scoring functions.
+        In this section, you can practice Cantonese in real-life conversation scenarios and receive ratings based on our independently developed AI model. Through this, you can effectively improve your dialect level.
       </p>
       <div class="uQxNj" v-if="user">
-        <button @click="logout" class="ieMfVH" :disabled="loading">
-          <span class="fKlELC" :class="{loading: loading}">
-            Log out
-          </span>
-          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="jjoFVh" :class="{loading: loading}">
-            <g fill="none" stroke-width="1.5" stroke-linecap="round" class="faEWLr" style="stroke: var(--icon-color);">
-              <circle stroke-opacity=".2" cx="8" cy="8" r="6"></circle>
-              <circle cx="8" cy="8" r="6" class="VFMrX"></circle>
-            </g>
-          </svg>
-        </button>
-        <NuxtLink to="/home"><button class="ieMfVH" :disabled="loading">
-          <span class="fKlELC" :class="{loading: loading}">
-            Start▶
-          </span>
-          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="jjoFVh" :class="{loading: loading}">
-            <g fill="none" stroke-width="1.5" stroke-linecap="round" class="faEWLr" style="stroke: var(--icon-color);">
-              <circle stroke-opacity=".2" cx="8" cy="8" r="6"></circle>
-              <circle cx="8" cy="8" r="6" class="VFMrX"></circle>
-            </g>
-          </svg>
-        </button>
-      </NuxtLink>
+        <div>
+        <NuxtLink to="/exam1">
+          <button class="ieMfVH">
+            <span class="fKlELC">
+              Phrase Exam
+            </span>
+          </button>
+        </NuxtLink>
+    </div>
+    <div>
+        <NuxtLink to="/exam2">
+          <button class="ieMfVH">
+            <span class="fKlELC">
+              Sentence Exam
+            </span>
+          </button>
+        </NuxtLink>
+    </div>
         
       </div>
       <div class="uQxNj" v-else>
@@ -76,13 +71,13 @@
     if (error) {
       loading.value = false
       return alert('Something went wrong !')
-    }
+    }s
   }
   
   useHead({
     title: 'Exam',
     meta: [
-      { name: 'description', content: 'You can use our translation software to convert multiple dialects to Mandarin, and also learn and practice on our platform. We also provide AI based exam scoring functions.' }
+      { name: 'description', content: 'In this section, you can practice Cantonese in real-life conversation scenarios and receive ratings based on our independently developed AI model. Through this, you can effectively improve your dialect level.' }
     ]
   })
   </script>

@@ -27,7 +27,7 @@
       <h2 class="text-lg font-semibold">Translation:</h2>
       <p class="border p-2">{{ translation }}</p>
     </div>
-      <br><br><br><br>
+      <br><br><br>
       <div>
         <NuxtLink to="/home">
           <button class="ieMfVH">
@@ -46,6 +46,7 @@ import { ref } from 'vue';
 // import { useSupabaseAuthClient } from '@/composables/useSupabaseAuth';
 import axios from 'axios';
 import md5 from 'md5';
+import qs from 'qs';
 
 const inputText = ref('');
 const translation = ref('');
@@ -57,24 +58,27 @@ const apiUrl = 'https://api.fanyi.baidu.com/api/trans/vip/translate';
 
 const client = useSupabaseAuthClient()
 const user = useSupabaseUser()
-  // const client = useSupabaseAuthClient()
   
-  async function translateText() {
+async function translateText() {
   if (!inputText.value.trim()) return;
   loading.value = true;
   const salt = Date.now();
   const sign = md5(`${appid}${inputText.value}${salt}${key}`);
+  
   try {
-    const response = await axios.get(apiUrl, {
-      params: {
-        q: inputText.value,
-        from: 'en',
-        to: 'yue', // Cantonese
-        appid: appid,
-        salt: salt,
-        sign: sign
+    const response = await axios.post(apiUrl, qs.stringify({
+      q: inputText.value,
+      from: 'zh',
+      to: 'yue', // Cantonese
+      appid: appid,
+      salt: salt,
+      sign: sign
+    }), {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
       }
     });
+
     if (response.data && response.data.trans_result) {
       translation.value = response.data.trans_result[0].dst;
     } else {
