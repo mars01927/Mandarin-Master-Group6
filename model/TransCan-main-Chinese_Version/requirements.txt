@@ -1,0 +1,17 @@
+autopep8
+tqdm
+wandb
+gdown
+fire
+wikiextractor
+blingfire
+regex
+wakong~=1.1.1
+datasets~=2.3.2
+torch~=2.1.0
+jax~=0.4.10
+jax-smi
+jaxtyping~=0.2.7
+flax~=0.6.1
+optax~=0.1.5
+transformers==4.29.2
